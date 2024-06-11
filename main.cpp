@@ -6,14 +6,14 @@
 
 #include <iostream>
 
-using namespace std;
+#define PROMPT "(cli) "
+#define INITIAL_MESSAGE "System biblioteczny Bibliotex. Wpisz \'help\', aby uzyskać więcej informacji.\n"
+#define HELP_TEXT \
+	"quit - Opuszcza program.\n" \
+	"help - Wyświetla informacje o komendach\n" \
+	"TODO!!!\n"
 
-string prompt = "(cli) ";
-string initialMessage = "System biblioteczny Bibliotex. Wpisz \'help\', aby uzyskać więcej informacji.\n";
-string helpText =
-	"quit - Opuszcza program.\n"
-	"help - Wyświetla informacje o komendach\n"
-	"TODO!!!\n";
+using namespace std;
 
 vector<string> processInput(char delimeter);
 bool processCommand(vector<string> command);
@@ -23,11 +23,11 @@ int main(void)
 	bool quit = false;
 	vector<string> command;
 	
-	cout << initialMessage;
+	cout << INITIAL_MESSAGE;
 	
 	while (!quit && cin)
 	{
-		cout << prompt;
+		cout << PROMPT;
 
 		command = processInput(' ');
 
@@ -90,7 +90,7 @@ bool processCommand(vector<string> command)
 	}
 	else if (command[0] == "help")
 	{
-		cout << helpText;
+		cout << HELP_TEXT;
 	}
 	else if (command[0] == "add")
 	{
