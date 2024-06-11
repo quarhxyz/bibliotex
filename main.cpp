@@ -45,10 +45,6 @@ int main(void)
 	return EXIT_SUCCESS;
 }
 
-void addBook(vector<string> command);
-void removeBook(vector<string> command);
-void showBooks(vector<string> command);
-
 vector<string> processInput(char delimiter)
 {
 	vector<string> command;
@@ -81,6 +77,10 @@ vector<string> processInput(char delimiter)
 	
 	return command;
 }
+
+void addBook(vector<string> command);
+void removeBook(vector<string> command);
+void showBooks(vector<string> command);
 
 bool processCommand(vector<string> command)
 {
