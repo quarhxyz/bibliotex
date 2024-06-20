@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <iostream>
 
 #define PROMPT "(cli) "
 #define INITIAL_MESSAGE "System biblioteczny Bibliotex. Wpisz \'help\', aby uzyskać więcej informacji.\n"
@@ -17,6 +18,10 @@ using namespace std;
 
 vector<string> processInput(char delimeter);
 bool processCommand(vector<string> command);
+
+void addBook(vector<string> command);
+void removeBook(vector<string> command);
+void showBooks(vector<string> command);
 
 int main(void)
 {
@@ -77,10 +82,6 @@ vector<string> processInput(char delimiter)
 	
 	return command;
 }
-
-void addBook(vector<string> command);
-void removeBook(vector<string> command);
-void showBooks(vector<string> command);
 
 bool processCommand(vector<string> command)
 {
