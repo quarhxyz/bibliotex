@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @brief Główny plik programu, tworzy interfejs i przetwarza wejście.
- * 
+ * :3
  */
 
 #include <iostream>
