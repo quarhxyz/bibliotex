@@ -19,14 +19,23 @@ private:
 	vector<Item*> items;
 	bool searchById(int id, int *pos);
 public:
-	Item *getItem(int pos);
+	~Library();
 
+	Item *getItem(int pos);
 	int size();
 	bool addItem(Item* item);
 	bool removeItem(int id);
 	bool rentItem(int id);
 	bool returnItem(int id);
 };
+
+Library::~Library()
+{
+	for (int i = 0; i < this->size(); i++)
+	{
+		delete this->items[i];
+	}
+}
 
 Item *Library::getItem(int pos)
 {
