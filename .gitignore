@@ -2,6 +2,7 @@ build/
 docs/*
 !docs/Doxyfile
 .DS_Store
+.vscode/
 
 # Prerequisites
 *.d
