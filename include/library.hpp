@@ -8,6 +8,7 @@
 #define LIBRARY
 
 #include <iostream>
+#include <vector>
 #include "item.hpp"
 #include "book.hpp"
 

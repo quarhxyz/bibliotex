@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <vector>
 #include <stdlib.h>
 #include "functions.hpp"
 #define PROMPT "(cli) "

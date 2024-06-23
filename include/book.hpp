@@ -8,6 +8,7 @@
 #define BOOK
 
 #include <iostream>
+#include <vector>
 #include "item.hpp"
 
 using namespace std;
