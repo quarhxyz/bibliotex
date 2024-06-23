@@ -4,9 +4,8 @@
  * 
  */
 
-
-#ifndef LIBRARY_H
-#define LIBRARY_H
+#ifndef LIBRARY
+#define LIBRARY
 
 #include <iostream>
 #include "item.hpp"
@@ -17,47 +16,135 @@ using namespace std;
 class Library
 {
 private:
-	vector<Item> Items;
+	vector<Item*> items;
+	bool searchById(int id, int *pos);
 public:
-	int size()
-	{
-		return this->Items.size();
-	}
+	Item *getItem(int pos);
 
-	void addItem(Item item)
-	{
-		this->Items.push_back(item);
-	}
+	int size();
+	bool addItem(Item* item);
+	bool removeItem(int id);
+	bool rentItem(int id);
+	bool returnItem(int id);
+};
 
-	void addItem(Book book)
-	{
-		this->Items.push_back(book);
-	}
+Item *Library::getItem(int pos)
+{
+	return this->items[pos];
+}
 
-	bool removeItem(int id)
+int Library::size()
+{
+	return this->items.size();
+}
+
+bool Library::searchById(int id, int *pos)
+{
+	bool succes = false;
+	int i;
+
+	for (i = 0; i < this->size(); i++)
+	{
+		if (items[i]->getId() == id)
+		{
+			succes = true;
+			*pos = i;
+			break;
+		}
+	}
+	
+	return succes;
+}
+
+bool Library::addItem(Item* item)
+{
+	bool succes = true;
+
+	if (item->getIsbn() != "")
 	{
 		for (int i = 0; i < this->size(); i++)
 		{
-			if (this->Items[i].getId() == id)
+			if (item->getIsbn() == items[i]->getIsbn())
 			{
-				this->Items.erase(Items.begin() + i);
-				return true;
+				succes = false;
 			}
 		}
-		
-		return false;
 	}
 	
-	void showAllItems()
+	if (succes == true)
 	{
-		for (int i = 0; i < this->size(); i++)
-		{
-			cout << "========================" << endl;
-			this->Items[i].show();
-		}
-		cout << "========================" << endl;
+		this->items.push_back(item);
+	}
+	else
+	{
+		cout << "Książka o danym numerze ISBN już istnieje." << endl;
 	}
 	
-};
+	return succes;
+}
+
+bool Library::removeItem(int id)
+{
+	bool succes;
+	int pos;
+
+	succes = searchById(id, &pos);
+
+	if (succes == true)
+	{
+		delete items[pos];
+		this->items.erase(items.begin() + pos);
+	}
+	else
+	{
+		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
+	}
+	
+	return succes;
+}
+
+bool Library::rentItem(int id)
+{
+	bool succes;
+	int pos;
+	
+	succes = searchById(id, &pos);
+		
+	if (succes == true)
+	{
+		succes = items[pos]->rentThis();
+		cout << "==========================" << endl;
+		items[pos]->show();
+		cout << "==========================" << endl;
+	}
+	else
+	{
+		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
+	}
+	
+	return succes;
+}
+
+bool Library::returnItem(int id)
+{
+	bool succes;
+	int pos;
+	
+	succes = searchById(id, &pos);
+		
+	if (succes == true)
+	{
+		succes = items[pos]->returnThis();
+		cout << "==========================" << endl;
+		items[pos]->show();
+		cout << "==========================" << endl;
+	}
+	else
+	{
+		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
+	}
+	
+	return succes;
+}
 
 #endif

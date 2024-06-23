@@ -8,6 +8,7 @@
 #define ITEM_H
 
 #include <iostream>
+
 using namespace std;
 
 class Item
@@ -19,50 +20,89 @@ private:
 	int quantity;
 	int available;
 public:
-	Item() {}
-
-	Item(int id, string name, string author, int quantity)
-	{
-		this->id = id;
-		this->name = name;
-		this->author = author;
-		this->quantity = quantity;
-		this->available = quantity;
-	}
+	Item();
+	Item(int id, string name, string author, int quantity);
 	
-	int getId()
-	{
-		return this->id;
-	}
-
-	string getName()
-	{
-		return this->name;
-	}
-
-	string getAuthor()
-	{
-		return this->author;
-	}
-
-	int getQuantity()
-	{
-		return this->quantity;
-	}
-
-	int getAvailable()
-	{
-		return this->available;
-	}
+	int getId();
+	string getName();
+	string getAuthor();
+	int getQuantity();
+	int getAvailable();
 	
-	virtual void show()
-	{
-		cout << "ID: " << this->getId() << endl;
-		cout << "Nazwa: " << this->getName() << endl;
-		cout << "Autor: " << this->getAuthor() << endl;
-		cout << "Ilość: " << this->getQuantity() << endl;
-		cout << "Dostępne sztuki: " << this->getAvailable() << endl;
-	}
+	bool rentThis();
+	bool returnThis();
+	
+	virtual string getIsbn() {return "";}
+	virtual void show() {}
 };
+
+Item::Item() {}
+Item::Item(int id, string name, string author, int quantity)
+{
+	this->id = id;
+	this->name = name;
+	this->author = author;
+	this->quantity = quantity;
+	this->available = quantity;
+}
+
+int Item::getId()
+{
+	return this->id;
+}
+
+string Item::getName()
+{
+	return this->name;
+}
+
+string Item::getAuthor()
+{
+	return this->author;
+}
+
+int Item::getQuantity()
+{
+	return this->quantity;
+}
+
+int Item::getAvailable()
+{
+	return this->available;
+}
+
+bool Item::rentThis()
+{
+	bool succes = true;
+	
+	if (this->available != 0)
+	{
+		this->available--;
+	}
+	else
+	{
+		cout << "Brak kopii do wypożyczenia." << endl;
+		succes = false;
+	}
+	
+	return succes;
+}
+
+bool Item::returnThis()
+{
+	bool succes = true;
+	
+	if (this->available < this->quantity)
+	{
+		this->available++;
+	}
+	else
+	{
+		cout << "Wszystkie kopie są dostępne, chyba komuś się biblioteka pomyliła." << endl;
+		succes = false;
+	}
+	
+	return succes;
+}
 
 #endif

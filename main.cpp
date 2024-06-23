@@ -5,8 +5,8 @@
  */
 
 #include <iostream>
+#include <stdlib.h>
 #include "functions.hpp"
-
 #define PROMPT "(cli) "
 #define INITIAL_MESSAGE "System biblioteczny Bibliotex. Wpisz \'help\', aby uzyskać więcej informacji.\n"
 #define HELP_TEXT \
@@ -25,7 +25,9 @@ int main(void)
 	
 	while (!quit && cin)
 	{
+		cout << "\033[1;31m"; // set color to bold red
 		cout << PROMPT;
+    	cout << "\033[0m"; // reset color to default
 
 		command = processInput(' ');
 
@@ -40,17 +42,25 @@ int main(void)
 			{
 				cout << HELP_TEXT;
 			}
-			else if (command[0] == "add")
+			else if (command[0] == "addbook")
 			{
 				addBook(command);
 			}
 			else if (command[0] == "remove")
 			{
-				removeBook(command);
+				removeItem(command);
 			}
 			else if (command[0] == "show")
 			{
-				showBooks(command);
+				showItems(command);
+			}
+			else if (command[0] == "rent")
+			{
+				rentItem(command);
+			}
+			else if (command[0] == "return")
+			{
+				returnItem(command);
 			}
 			else
 			{

@@ -8,6 +8,8 @@
 
 using namespace std;
 
+int uid = 0;
+
 vector<string> processInput(char delimiter)
 {
 	vector<string> command;
@@ -39,4 +41,30 @@ vector<string> processInput(char delimiter)
 	}
 	
 	return command;
+}
+
+int makeUID()
+{
+	return uid++;
+}
+
+bool checkIsbn(string isbn)
+{
+	return true;
+}
+
+bool checkIfNumber(string arg)
+{
+	bool succes = true;
+
+	for (int i = 0; i < arg.size() && arg[i] != '\0'; i++)
+	{
+		if (arg[i] < '0' && arg[i] > '9')
+		{
+			succes = false;
+			break;
+		}
+	}
+	
+	return succes;
 }
