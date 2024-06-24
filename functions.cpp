@@ -60,7 +60,7 @@ bool checkIfNumber(string arg)
 
 	for (int i = 0; i < arg.size() && arg[i] != '\0'; i++)
 	{
-		if (arg[i] < '0' && arg[i] > '9')
+		if (arg[i] < '0' || arg[i] > '9')
 		{
 			succes = false;
 			break;
