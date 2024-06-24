@@ -30,7 +30,7 @@ int main(void)
 		cout << PROMPT;
     	cout << "\033[0m"; // reset color to default
 
-		command = processInput(' ');
+		command = processInput();
 
 		if (!command.empty())
 		{

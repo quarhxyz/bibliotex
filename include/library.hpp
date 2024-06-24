@@ -126,13 +126,17 @@ bool Library::rentItem(int id)
 	if (succes == true)
 	{
 		succes = items[pos]->rentThis();
-		cout << "==========================" << endl;
-		items[pos]->show();
-		cout << "==========================" << endl;
 	}
 	else
 	{
 		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
+	}
+	
+	if (succes == true)
+	{
+		cout << "==========================" << endl;
+		items[pos]->show();
+		cout << "==========================" << endl;
 	}
 	
 	return succes;
@@ -148,14 +152,19 @@ bool Library::returnItem(int id)
 	if (succes == true)
 	{
 		succes = items[pos]->returnThis();
-		cout << "==========================" << endl;
-		items[pos]->show();
-		cout << "==========================" << endl;
 	}
 	else
 	{
 		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
 	}
+
+	if (succes == true)
+	{
+		cout << "==========================" << endl;
+		items[pos]->show();
+		cout << "==========================" << endl;
+	}
+	
 	
 	return succes;
 }

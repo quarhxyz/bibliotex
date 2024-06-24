@@ -9,7 +9,7 @@
 
 using namespace std;
 
-vector<string> processInput(char delimeter);
+vector<string> processInput();
 
 void addBook(vector<string> command);
 void removeItem(vector<string> command);
