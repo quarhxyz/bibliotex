@@ -14,7 +14,7 @@
 	"quit - Opuszcza program.\n" \
 	"help - Wyświetla informacje o komendach.\n" \
 	"show - Wyświetla wszystkie przedmioty w bibliotece.\n" \
-	"addbook <nazwa> <autor> <ISBN> <ilość> - Dodaje książkę.\n" \
+	"addbook <nazwa> <autor> <ISBN> <ilość> - Dodaje książke.\n" \
 	"remove <ID> - Usuwa przedmiot z biblioteki.\n" \
 	"rent <ID> - Wypożycza kopie przedmiotu z biblioteki.\n" \
 	"return <ID> - Zwraca kopie przedmiotu do biblioteki.\n" \
