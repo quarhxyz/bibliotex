@@ -44,12 +44,6 @@ void addBook(vector<string> command)
 	{
 		cout << "Nie udało się dodać książki!" << endl;
 	}
-	else
-	{
-		cout << "==========================" << endl;
-		book->show();
-		cout << "==========================" << endl;
-	}
 }
 
 void removeItem(vector<string> command)
@@ -76,8 +70,6 @@ void removeItem(vector<string> command)
 
 void showItems(vector<string> command)
 {
-	Item *item;
-	
 	if (library.size() == 0)
 	{
 		return;
@@ -85,9 +77,8 @@ void showItems(vector<string> command)
 
 	for (int i = 0; i < library.size(); i++)
 	{
-		item = library.getItem(i);
 		cout << "==========================" << endl;
-		item->show();
+		library.showItem(i);
 	}
 	cout << "==========================" << endl;
 }

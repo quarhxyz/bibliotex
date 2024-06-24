@@ -18,12 +18,12 @@ class Library
 {
 private:
 	vector<Item*> items;
-	bool searchById(int id, int *pos);
 public:
 	~Library();
 
-	Item *getItem(int pos);
 	int size();
+	bool searchById(int id, int *pos);
+	void showItem(int pos);
 	bool addItem(Item* item);
 	bool removeItem(int id);
 	bool rentItem(int id);
@@ -36,11 +36,6 @@ Library::~Library()
 	{
 		delete this->items[i];
 	}
-}
-
-Item *Library::getItem(int pos)
-{
-	return this->items[pos];
 }
 
 int Library::size()
@@ -66,6 +61,11 @@ bool Library::searchById(int id, int *pos)
 	return succes;
 }
 
+void Library::showItem(int pos)
+{
+	this->items[pos]->show();
+}
+
 bool Library::addItem(Item* item)
 {
 	bool succes = true;
@@ -84,6 +84,9 @@ bool Library::addItem(Item* item)
 	if (succes == true)
 	{
 		this->items.push_back(item);
+		cout << "==========================" << endl;
+		item->show();
+		cout << "==========================" << endl;
 	}
 	else
 	{
