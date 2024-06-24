@@ -11,27 +11,39 @@ using namespace std;
 
 int uid = 0;
 
-vector<string> processInput(char delimiter)
+vector<string> processInput()
 {
 	vector<string> command;
 	string buffer;
 	char c;
-	bool state = false;
+	bool state_a = false;
+	bool state_b = false;
 
 	while ((c = cin.get()) != '\n' && cin)
 	{
-		if (c == delimiter || c == '\t')
+		if ((c == ' ' || c == '\t') && state_b == false)
 		{
-			if (state == true)
+			if (state_a == true)
 			{
 				command.push_back(buffer);
 				buffer.clear();
 			}
-			state = false;
+			state_a = false;
+		}
+		else if (c == '\"')
+		{
+			if (state_b == true)
+			{
+				state_b = false;
+			}
+			else if (state_b == false)
+			{
+				state_b = true;
+			}
 		}
 		else
 		{
-			state = true;
+			state_a = true;
 			buffer += c;
 		}
 	}
@@ -51,7 +63,20 @@ int makeUID()
 
 bool checkIsbn(string isbn)
 {
-	return true;
+	bool succes = false;
+	string buff;
+
+	if (isbn.size() == 13)
+	{
+		succes = true;
+	}
+	
+	if (!(succes == true && (buff = isbn.substr(0, 3)) == "978" || buff == "979"))
+	{
+		succes = false;
+	}
+	
+	return succes;
 }
 
 bool checkIfNumber(string arg)

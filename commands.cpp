@@ -26,7 +26,7 @@ void addBook(vector<string> command)
 
 	if (!checkIsbn(command[3]))
 	{
-		cout << "Niepoprawny numer ISBN" << endl;
+		cout << "Niepoprawny numer ISBN!" << endl;
 		return;
 	}
 	
@@ -71,6 +71,11 @@ void removeItem(vector<string> command)
 void showItems(vector<string> command)
 {
 	if (library.size() == 0)
+	{
+		return;
+	}
+
+	if (command.size() != 1)
 	{
 		return;
 	}
