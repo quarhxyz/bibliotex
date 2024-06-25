@@ -10,7 +10,7 @@
 #include <locale>
 #include "functions.hpp"
 
-#define PROMPT "(cli) "
+#define PROMPT "\033[1;31m(cli) \033[0m"
 #define INITIAL_MESSAGE "System biblioteczny Bibliotex. Wpisz \'help\', aby uzyskać więcej informacji.\n"
 #define HELP_TEXT \
 	"quit - Opuszcza program.\n" \
@@ -35,9 +35,7 @@ int main(void)
 	
 	while (!quit && cin)
 	{
-		cout << "\033[1;31m"; // set color to bold red
 		cout << PROMPT;
-    	cout << "\033[0m"; // reset color to default
 
 		command = processInput();
 
