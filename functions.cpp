@@ -94,3 +94,9 @@ bool checkIfNumber(string arg)
 	
 	return success;
 }
+
+void clearScreen(void)
+{
+    system("cls||clear");
+    return;
+}

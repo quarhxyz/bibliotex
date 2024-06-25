@@ -1,6 +1,6 @@
 /**
  * @file functions.hpp
- * @brief Plik nagłówkowy zawierający deklaracje funkcji z plików functions.cpp i commands.cpp.
+ * @brief zawierający deklaracje funkcji z plików functions.cpp i commands.cpp.
  * 
  */
 
@@ -55,7 +55,6 @@ void rentItem(vector<string> command);
  */
 void returnItem(vector<string> command);
 
-
 /**
  * @brief generuje unikalny identyfikator numeryczny
  * 
@@ -81,3 +80,9 @@ bool checkIsbn(string isbn);
  * @return false 
  */
 bool checkIfNumber(string arg);
+
+/**
+ * @brief czyści zawartość ekranu
+ * 
+ */
+void clearScreen();
