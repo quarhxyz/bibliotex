@@ -12,6 +12,10 @@
 
 using namespace std;
 
+/**
+ * @brief klasa bazowa elementu w bibliotece
+ * 
+ */
 class Item
 {
 private:
@@ -47,34 +51,65 @@ Item::Item(int id, string name, string author, int quantity)
 	this->available = quantity;
 }
 
+/**
+ * @brief zwraca unikalny identyfikator obiektu klasy generowany przez makeUID()
+ * 
+ * @return int 
+ */
 int Item::getId()
 {
 	return this->id;
 }
 
+/**
+ * @brief zwraca nazwę przedmiotu
+ * 
+ * @return string 
+ */
 string Item::getName()
 {
 	return this->name;
 }
 
+/**
+ * @brief zwraca autora
+ * 
+ * @return string 
+ */
 string Item::getAuthor()
 {
 	return this->author;
 }
 
+/**
+ * @brief zwraca całkowitą ilość przedmiotów
+ * 
+ * @return int 
+ */
 int Item::getQuantity()
 {
 	return this->quantity;
 }
 
+/**
+ * @brief zwraca ilość dostępnych przedmiotów
+ * 
+ * @return int 
+ */
 int Item::getAvailable()
 {
 	return this->available;
 }
 
+/**
+ * @brief „wypożycza” jeden przedmiot zmniejszając ilość dostępnych przedmiotów (available)
+ * 
+ * @return true „wypożyczenie” przebiegło pomyślnie (przedmiot jest dostępny)
+ * @return false „wypożyczenie” nie przebiegło pomyślnie (przedmiot nie jest dostępny)
+ */
 bool Item::rentThis()
 {
-	bool succes = true;
+	bool success = true;
 	
 	if (this->available != 0)
 	{
@@ -83,15 +118,22 @@ bool Item::rentThis()
 	else
 	{
 		cout << "Brak kopii do wypożyczenia." << endl;
-		succes = false;
+		success = false;
 	}
 	
-	return succes;
+	return success;
 }
 
+
+/**
+ * @brief „zwraca” jeden przedmiot zwiększając ilość dostępnych przedmiotów (available)
+ * 
+ * @return true „zwrot” przebiegł pomyślnie
+ * @return false „zwrot” nie przebiegł pomyślnie
+ */
 bool Item::returnThis()
 {
-	bool succes = true;
+	bool success = true;
 	
 	if (this->available < this->quantity)
 	{
@@ -100,10 +142,10 @@ bool Item::returnThis()
 	else
 	{
 		cout << "Wszystkie kopie są dostępne, chyba komuś się biblioteka pomyliła." << endl;
-		succes = false;
+		success = false;
 	}
 	
-	return succes;
+	return success;
 }
 
 #endif

@@ -79,5 +79,5 @@ int main(void)
 		cout << endl;
 	}
 	
-	return EXIT_SUCCESS;
+	return EXIT_successS;
 }

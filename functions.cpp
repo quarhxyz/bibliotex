@@ -63,34 +63,34 @@ int makeUID()
 
 bool checkIsbn(string isbn)
 {
-	bool succes = false;
+	bool success = false;
 	string buff;
 
 	if (isbn.size() == 13)
 	{
-		succes = true;
+		success = true;
 	}
 	
-	if (!(succes == true && (buff = isbn.substr(0, 3)) == "978" || buff == "979"))
+	if (!(success == true && (buff = isbn.substr(0, 3)) == "978" || buff == "979"))
 	{
-		succes = false;
+		success = false;
 	}
 	
-	return succes;
+	return success;
 }
 
 bool checkIfNumber(string arg)
 {
-	bool succes = true;
+	bool success = true;
 
 	for (int i = 0; i < arg.size() && arg[i] != '\0'; i++)
 	{
 		if (arg[i] < '0' || arg[i] > '9')
 		{
-			succes = false;
+			success = false;
 			break;
 		}
 	}
 	
-	return succes;
+	return success;
 }
