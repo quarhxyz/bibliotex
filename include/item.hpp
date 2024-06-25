@@ -117,13 +117,11 @@ bool Item::rentThis()
 	}
 	else
 	{
-		cout << "Brak kopii do wypożyczenia." << endl;
 		success = false;
 	}
 	
 	return success;
 }
-
 
 /**
  * @brief „zwraca” jeden przedmiot zwiększając ilość dostępnych przedmiotów (available)
@@ -141,7 +139,6 @@ bool Item::returnThis()
 	}
 	else
 	{
-		cout << "Wszystkie kopie są dostępne, chyba komuś się biblioteka pomyliła." << endl;
 		success = false;
 	}
 	

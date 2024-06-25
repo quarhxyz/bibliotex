@@ -1,6 +1,6 @@
 /**
  * @file library.hpp
- * @brief Definiuje klasę biblioteki (Library), przechowującą obiekty klas Book i Item.
+ * @brief definiuje klasę biblioteki (Library), przechowującą obiekty klas Book i Item.
  * 
  */
 
@@ -23,11 +23,11 @@ class Library
 {
 private:
 	vector<Item*> items;
+	bool searchById(int id, int *pos);
 public:
 	~Library();
 
 	int size();
-	bool searchById(int id, int *pos);
 	void showItem(int pos);
 	bool addItem(Item* item);
 	bool removeItem(int id);
@@ -182,6 +182,10 @@ bool Library::rentItem(int id)
 		items[pos]->show();
 		cout << "==========================" << endl;
 	}
+	else
+	{
+		cout << "Brak kopii do wypożyczenia." << endl;
+	}
 	
 	return success;
 }
@@ -214,6 +218,10 @@ bool Library::returnItem(int id)
 		cout << "==========================" << endl;
 		items[pos]->show();
 		cout << "==========================" << endl;
+	}
+	else
+	{
+		cout << "Wszystkie kopie są dostępne, chyba komuś się pomyliła biblioteka." << endl;
 	}
 	
 	

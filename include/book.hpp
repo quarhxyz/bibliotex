@@ -1,6 +1,6 @@
 /**
  * @file book.hpp
- * @brief Definiuje klasę książki (Book), pochodną klasy Item.
+ * @brief definiuje klasę książki (Book), pochodną klasy Item.
  * 
  */
 
