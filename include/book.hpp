@@ -13,6 +13,10 @@
 
 using namespace std;
 
+/**
+ * @brief definiuje obiekt książki
+ * 
+ */
 class Book : public Item
 {
 private:
@@ -31,11 +35,20 @@ Book::Book(int id, string name, string author, string isbn, int quantity)
 	this->isbn = isbn;
 }
 
+/**
+ * @brief zwraca kod ISBN książki reprezentowanej obiektem
+ * 
+ * @return string 
+ */
 string Book::getIsbn()
 {
 	return this->isbn;
 }
 
+/**
+ * @brief wyświetla informacje o książce 
+ * 
+ */
 void Book::show()
 {
 	cout << "ID: " << this->getId() << endl;

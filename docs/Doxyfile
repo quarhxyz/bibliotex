@@ -530,7 +530,7 @@ EXTRACT_ALL            = NO
 # be included in the documentation.
 # The default value is: NO.
 
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 
 # If the EXTRACT_PRIV_VIRTUAL tag is set to YES, documented private virtual
 # methods of a class will be included in the documentation.
@@ -1773,7 +1773,7 @@ OBFUSCATE_EMAILS       = YES
 HTML_FORMULA_FORMAT    = png
 
 # Use this tag to change the font size of LaTeX formulas included as images in
-# the HTML documentation. When you change the font size after a successful
+# the HTML documentation. When you change the font size after a successsful
 # doxygen run you need to manually remove any form_*.png images from the HTML
 # output directory to force them to be regenerated.
 # Minimum value: 8, maximum value: 50, default value: 10.
