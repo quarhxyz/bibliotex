@@ -43,6 +43,7 @@ void addBook(vector<string> command)
 	if(!library.addItem(book))
 	{
 		cout << "Nie udało się dodać książki!" << endl;
+		delete book;
 	}
 }
 
