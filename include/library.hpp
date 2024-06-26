@@ -111,7 +111,7 @@ bool Library::addItem(Item* item)
 		}
 	}
 	
-	if (success == true)
+	if (success)
 	{
 		this->items.push_back(item);
 		cout << "==========================" << endl;
@@ -140,7 +140,7 @@ bool Library::removeItem(int id)
 
 	success = searchById(id, &pos);
 
-	if (success == true)
+	if (success)
 	{
 		delete items[pos];
 		this->items.erase(items.begin() + pos);
@@ -167,7 +167,7 @@ bool Library::rentItem(int id)
 	
 	success = searchById(id, &pos);
 		
-	if (success == true)
+	if (success)
 	{
 		success = items[pos]->rentThis();
 	}
@@ -176,7 +176,7 @@ bool Library::rentItem(int id)
 		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
 	}
 	
-	if (success == true)
+	if (success)
 	{
 		cout << "==========================" << endl;
 		items[pos]->show();
@@ -204,7 +204,7 @@ bool Library::returnItem(int id)
 	
 	success = searchById(id, &pos);
 		
-	if (success == true)
+	if (success)
 	{
 		success = items[pos]->returnThis();
 	}
@@ -213,7 +213,7 @@ bool Library::returnItem(int id)
 		cout << "Nie ma przedmiotu o danym numerze ID." << endl;
 	}
 
-	if (success == true)
+	if (success)
 	{
 		cout << "==========================" << endl;
 		items[pos]->show();
