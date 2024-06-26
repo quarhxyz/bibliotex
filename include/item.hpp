@@ -117,6 +117,7 @@ bool Item::rentThis()
 	}
 	else
 	{
+		cout << "Brak kopii do wypożyczenia." << endl;
 		success = false;
 	}
 	
@@ -139,6 +140,7 @@ bool Item::returnThis()
 	}
 	else
 	{
+		cout << "Wszystkie kopie są dostępne, chyba komuś się pomyliła biblioteka." << endl;
 		success = false;
 	}
 	

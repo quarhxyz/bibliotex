@@ -182,10 +182,6 @@ bool Library::rentItem(int id)
 		items[pos]->show();
 		cout << "==========================" << endl;
 	}
-	else
-	{
-		cout << "Brak kopii do wypożyczenia." << endl;
-	}
 	
 	return success;
 }
@@ -219,11 +215,6 @@ bool Library::returnItem(int id)
 		items[pos]->show();
 		cout << "==========================" << endl;
 	}
-	else
-	{
-		cout << "Wszystkie kopie są dostępne, chyba komuś się pomyliła biblioteka." << endl;
-	}
-	
 	
 	return success;
 }
